@@ -21,14 +21,15 @@ public class LeftMovement : MonoBehaviour
             obstacleWidth = GameObject.FindGameObjectWithTag("Column").GetComponent<BoxCollider2D>().size.x;
 
         }
-
-
     }
 
     
     void Update()
     {
-        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+        if(GameManager.gameOver == false)
+        {
+            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+        }
 
         if(gameObject.CompareTag("Ground"))
         {
@@ -46,8 +47,5 @@ public class LeftMovement : MonoBehaviour
             }
             
         }
-
-    
-    
     }
 }
